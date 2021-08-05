@@ -1,19 +1,12 @@
 {
-  "base_url": "https://wutali-nextjs-netlify-blog.netlify.app",
-  "site_title": "Next.js Netlify Blog",
-  "site_description": "Next.js blog template for Netlify",
+  "base_url": "https://test.manj.io",
+  "site_title": "manj.io",
+  "site_description": "Profile and Blog",
   "site_keywords": [
-    {
-      "keyword": "Next.js"
-    },
-    {
-      "keyword": "Netlify"
-    },
-    {
-      "keyword": "React"
-    }
+    "manji0",
+    "Blog"
   ],
   "posts_per_page": 5,
-  "twitter_account": "@my-account",
-  "github_account": "wutali"
+  "twitter_account": "@_manji0",
+  "github_account": "manji-0"
 }
