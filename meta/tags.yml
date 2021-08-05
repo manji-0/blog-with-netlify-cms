@@ -1,4 +1,8 @@
 tags:
+  - slug: tech
+    name: Technical Note
+  - slug: diary
+    name: Diary
   - slug: document
     name: document
   - slug: mock
