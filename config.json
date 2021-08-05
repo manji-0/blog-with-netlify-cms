@@ -3,8 +3,12 @@
   "site_title": "manj.io",
   "site_description": "Profile and Blog",
   "site_keywords": [
-    "manji0",
-    "Blog"
+    {
+        "keyword": "manji0"
+    },
+    {
+        "keyword": "Blog"
+    }
   ],
   "posts_per_page": 5,
   "twitter_account": "@_manji0",
