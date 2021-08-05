@@ -79,9 +79,11 @@ export function countPosts(tag?: string): number {
 export function listPostContent(
   page: number,
   limit: number,
-  tag?: string
+  tag?: string,
+  year?: string
 ): PostContent[] {
   return fetchPostContent()
     .filter((it) => !tag || (it.tags && it.tags.includes(tag)))
+    .filter((it => !year || (it.date.split("-")[0] === year)))
     .slice((page - 1) * limit, page * limit);
 }
