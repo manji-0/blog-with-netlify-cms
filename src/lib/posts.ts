@@ -11,6 +11,7 @@ export type PostContent = {
   readonly slug: string;
   readonly tags?: string[];
   readonly fullPath: string;
+  readonly urlPath: string;
 };
 
 let postCache: PostContent[];
@@ -40,8 +41,12 @@ export function fetchPostContent(): PostContent[] {
         tags: string[];
         slug: string;
         fullPath: string,
+        urlPath: string,
       };
       matterData.fullPath = fullPath;
+
+      const year = matterData.date.split("-")[0]
+      matterData.urlPath = path.join("/posts/", year, fileName.replace(/\.mdx$/, ""))
 
       const slug = fileName.replace(/\.mdx$/, "");
 
