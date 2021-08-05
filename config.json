@@ -10,7 +10,7 @@
         "keyword": "Blog"
     }
   ],
-  "posts_per_page": 5,
+  "posts_per_page": 10,
   "twitter_account": "@_manji0",
   "github_account": "manji-0"
 }
