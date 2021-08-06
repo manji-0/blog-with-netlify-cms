@@ -4,6 +4,7 @@ import Layout from "../../../components/Layout";
 import BasicMeta from "../../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../../components/meta/TwitterCardMeta";
+import { fetchPostContent } from "../../../lib/posts";
 import PostList from "../../../components/PostList";
 import config from "../../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../../lib/posts";
@@ -18,6 +19,11 @@ type Props = {
     pages: number;
   };
 };
+
+function uniq(array: string[]) {
+  return [...new Set(array)];
+}
+
 export default function Index({ posts, tags, pagination }: Props) {
   const router = useRouter()
   const {year} = router.query
@@ -51,13 +57,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = uniq(fetchPostContent().map(it => "/posts/" + it.date.split('-')[0]));
   return {
-    paths: [
-      "/posts/2023",
-      "/posts/2022",
-      "/posts/2021",
-      "/posts/2020",
-      "/posts/2019"],
+    paths: paths,
     fallback: false,
   };
 };
