@@ -5,7 +5,7 @@ import { Theme, ParsedRequest } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    let { fontSize, theme, md, background } = (query || {});
+    let { fontSize, theme, md, background, filename } = (query || {});
 
     if (fontSize === undefined) {
         fontSize = "96px"
@@ -20,6 +20,10 @@ export function parseRequest(req: IncomingMessage) {
         background = ""
     }
 
+    if (filename === undefined) {
+        filename = "Hellow World"
+    }
+
     if (Array.isArray(fontSize)) {
         throw new Error('Expected a single fontSize');
     }
@@ -30,7 +34,7 @@ export function parseRequest(req: IncomingMessage) {
         throw new Error('Expected a single background');
     }
     
-    const arr = (pathname || '/').slice(1).split('.');
+    const arr = String(filename).slice(1).split('.');
     let extension = '';
     let text = '';
     if (arr.length === 0) {
