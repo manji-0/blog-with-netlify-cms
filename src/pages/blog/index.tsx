@@ -18,7 +18,7 @@ type Props = {
   };
 };
 export default function Index({ posts, tags, pagination }: Props) {
-  const url = "/posts";
+  const url = "/blog";
   const title = "All posts";
   return (
     <Layout>

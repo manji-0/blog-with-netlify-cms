@@ -17,10 +17,10 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="/posts/2021/resume">
+            <Link href="/blog/2021/resume">
               <a
                 className={
-                  router.asPath === "/posts/2021/resume" ? "active" : null
+                  router.asPath === "/blog/2021/resume" ? "active" : null
                 }
               >
                 Resume
@@ -28,10 +28,10 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="/posts/2021/contacts">
+            <Link href="/blog/2021/contacts">
               <a
                 className={
-                  router.asPath === "/posts/2021/contacts" ? "active" : null
+                  router.asPath === "/blog/2021/contacts" ? "active" : null
                 }
               >
                 Contacts
@@ -39,15 +39,15 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="/posts">
+            <Link href="/blog">
               <a
                 className={
-                  (router.pathname.startsWith("/posts") 
+                  (router.pathname.startsWith("/blog") 
                   && !router.asPath.endsWith("/resume") 
                   && !router.asPath.endsWith("/contacts")) ? "active" : null
                 }
               >
-                Posts
+                Blog
               </a>
             </Link>
           </li>

@@ -57,7 +57,7 @@ export default function Post({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = fetchPostContent().map(it => "/posts/" + it.date.split('-')[0] + "/" + it.slug);
+  const paths = fetchPostContent().map(it => "/blog/" + it.date.split('-')[0] + "/" + it.slug);
   return {
     paths,
     fallback: false,

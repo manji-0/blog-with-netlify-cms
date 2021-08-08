@@ -27,7 +27,7 @@ function uniq(array: string[]): string[]{
 export default function Index({ posts, tags, pagination }: Props) {
   const router = useRouter()
   const year = String(router.query["year"])
-  const url = "/posts/" + year;
+  const url = "/blog/" + year;
   const title = year + " posts";
   return (
     <Layout>
@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = uniq(fetchPostContent().map(it => "/posts/" + it.date.split('-')[0]));
+  const paths = uniq(fetchPostContent().map(it => "/blog/" + it.date.split('-')[0]));
   return {
     paths: paths,
     fallback: false,
