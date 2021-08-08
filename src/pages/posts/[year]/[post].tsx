@@ -12,6 +12,8 @@ import PostLayout from "../../../components/PostLayout";
 import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
 import { TwitterTweetEmbed } from "react-twitter-embed";
+import Gist from 'react-gist';
+import Script from 'next/script';
 
 export type Props = {
   title: string;
@@ -23,7 +25,7 @@ export type Props = {
   source: MdxRemote.Source;
 };
 
-const components = { InstagramEmbed, YouTube, TwitterTweetEmbed };
+const components = { InstagramEmbed, YouTube, TwitterTweetEmbed, Script, Gist };
 const slugToPostContent = (postContents => {
   let hash = {}
   postContents.forEach(it => hash[it.slug] = it)
