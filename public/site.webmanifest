@@ -1,6 +1,15 @@
 {
-  "short_name": "",
-  "name": "",
+  "short_name": "manj.io",
+  "name": "manj.io",
+  "description": "manji0's profile and blog posts",
+  "lang": "ja-JP",
+  "screenshots": [
+    {
+      "src": "images/screenshot.webp",
+      "sizes": "1280x720",
+      "type": "image/webp"
+    }
+  ], 
   "icons": [
     {
       "src": "icon.png",
@@ -8,7 +17,7 @@
       "sizes": "192x192"
     }
   ],
-  "start_url": "/?utm_source=homescreen",
+  "start_url": "/",
   "background_color": "#000000",
   "theme_color": "#000000"
 }
