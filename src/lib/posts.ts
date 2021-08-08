@@ -10,7 +10,7 @@ export type PostContent = {
   readonly title: string;
   readonly slug: string;
   readonly tags?: string[];
-  readonly is_blog: boolean;
+  readonly is_blog?: boolean;
   readonly fullPath: string;
   readonly urlPath: string;
 };
@@ -39,12 +39,19 @@ export function fetchPostContent(): PostContent[] {
       const matterData = matterResult.data as {
         date: string;
         title: string;
-        tags: string[];
-        is_blog: boolean;
+        tags?: string[];
+        is_blog?: boolean;
         slug: string;
         fullPath: string,
         urlPath: string,
       };
+      if (matterData.tags === undefined) {
+        matterData.tags = []
+      }
+      if (matterData.is_blog === undefined) {
+        matterData.is_blog = true
+      }
+
       matterData.fullPath = fullPath;
 
       const year = matterData.date.split("-")[0]
@@ -76,7 +83,7 @@ export function countPosts(tag?: string): number {
   return fetchPostContent().filter(
     (it) => !tag || (it.tags && it.tags.includes(tag))
   ).filter(
-    (it) => it.is_blog
+    (it) => it.is_blog === true
   ).length;
 }
 
@@ -88,7 +95,7 @@ export function listPostContent(
 ): PostContent[] {
   return fetchPostContent()
     .filter((it) => !tag || (it.tags && it.tags.includes(tag)))
-    .filter((it) => it.is_blog)
+    .filter((it) => it.is_blog === true)
     .filter((it => !year || (it.date.split("-")[0] === year)))
     .slice((page - 1) * limit, page * limit);
 }

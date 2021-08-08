@@ -20,7 +20,7 @@ export default function Navigation() {
             <Link href="/posts/2021/resume">
               <a
                 className={
-                  router.pathname.endsWith("/resume") ? "active" : null
+                  router.asPath === "/posts/2021/resume" ? "active" : null
                 }
               >
                 Resume
@@ -31,7 +31,7 @@ export default function Navigation() {
             <Link href="/posts">
               <a
                 className={
-                  (router.pathname.startsWith("/posts") && !router.pathname.endsWith("/resume")) ? "active" : null
+                  (router.pathname.startsWith("/posts") && !router.asPath.endsWith("/resume")) ? "active" : null
                 }
               >
                 Posts
