@@ -12,7 +12,6 @@ import PostLayout from "../../../components/PostLayout";
 import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
 import { TwitterTweetEmbed } from "react-twitter-embed";
-import path from "node:path";
 
 export type Props = {
   title: string;
