@@ -28,10 +28,23 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
+            <Link href="/posts/2021/contacts">
+              <a
+                className={
+                  router.asPath === "/posts/2021/contacts" ? "active" : null
+                }
+              >
+                Contacts
+              </a>
+            </Link>
+          </li>
+          <li>
             <Link href="/posts">
               <a
                 className={
-                  (router.pathname.startsWith("/posts") && !router.asPath.endsWith("/resume")) ? "active" : null
+                  (router.pathname.startsWith("/posts") 
+                  && !router.asPath.endsWith("/resume") 
+                  && !router.asPath.endsWith("/contacts")) ? "active" : null
                 }
               >
                 Posts
