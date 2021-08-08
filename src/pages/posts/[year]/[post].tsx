@@ -12,6 +12,7 @@ import PostLayout from "../../../components/PostLayout";
 import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
 import { TwitterTweetEmbed } from "react-twitter-embed";
+import path from "node:path";
 
 export type Props = {
   title: string;
@@ -73,8 +74,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       title: data.title,
       dateString: data.date,
-      slug: data.slug,
-      description: "",
+      slug: slug,
+      description: data.description != undefined ? data.description : "No description",
       tags: data.tags != undefined ? data.tags : [],
       author: data.author,
       source: mdxSource

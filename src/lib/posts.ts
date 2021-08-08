@@ -10,6 +10,7 @@ export type PostContent = {
   readonly title: string;
   readonly slug: string;
   readonly tags?: string[];
+  readonly description: string;
   readonly is_blog?: boolean;
   readonly fullPath: string;
   readonly urlPath: string;
@@ -40,8 +41,9 @@ export function fetchPostContent(): PostContent[] {
         date: string;
         title: string;
         tags?: string[];
-        is_blog?: boolean;
         slug: string;
+        description?: string;
+        is_blog?: boolean;
         fullPath: string,
         urlPath: string,
       };
@@ -52,19 +54,16 @@ export function fetchPostContent(): PostContent[] {
         matterData.is_blog = true
       }
 
+      if (matterData.description === undefined) {
+        matterData.description = "No description"
+      }
+
       matterData.fullPath = fullPath;
 
       const year = matterData.date.split("-")[0]
       matterData.urlPath = path.join("/posts/", year, fileName.replace(/\.mdx$/, ""))
 
-      const slug = fileName.replace(/\.mdx$/, "");
-
-      // Validate slug string
-      if (matterData.slug !== slug) {
-        throw new Error(
-          "slug field not match with the path of its content source"
-        );
-      }
+      matterData.slug = fileName.replace(/\.mdx$/, "");
 
       return matterData;
     });
