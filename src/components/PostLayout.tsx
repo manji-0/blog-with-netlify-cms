@@ -51,7 +51,7 @@ export default function PostLayout({
         url={`/blog/${year}/${slug}`}
         title={title}
         description={description}
-        image={"https://www.manj.io/api/og-img?filename=" + title + ".png"}
+        image={`https://www.manj.io/api/og-img?filename=${title}.png`}
       />
       <JsonLdMeta
         url={`/blog/${year}/${slug}`}
