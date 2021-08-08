@@ -20,13 +20,13 @@ type Props = {
   };
 };
 
-function uniq(array: string[]) {
-  return [...new Set(array)];
+function uniq(array: string[]): string[]{
+  return Array.from(new Set(array))
 }
 
 export default function Index({ posts, tags, pagination }: Props) {
   const router = useRouter()
-  const {year} = router.query
+  const year = String(router.query["year"])
   const url = "/posts/" + year;
   const title = year + " posts";
   return (
@@ -41,7 +41,7 @@ export default function Index({ posts, tags, pagination }: Props) {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const year = params.year
-  const posts = listPostContent(1, config.posts_per_page, undefined, year);
+  const posts = listPostContent(1, config.posts_per_page, undefined, String(year));
   const tags = listTags();
   const pagination = {
     current: 1,
