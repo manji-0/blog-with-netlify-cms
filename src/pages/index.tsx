@@ -6,6 +6,7 @@ import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { SocialList } from "../components/SocialList";
 import { listPostContent } from "../lib/posts";
 import { generateFeedXml } from "../lib/rss";
+import { generateSitemap } from "../lib/sitemap";
 
 export default function Index() {
   return (
@@ -67,6 +68,7 @@ export default function Index() {
 export const getStaticProps: GetStaticProps = async () => {
   const posts = listPostContent(1, 100000);
   await generateFeedXml(posts)
+  await generateSitemap(posts)
   return {
     props: {
       posts,

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.manj.io/
+
+# Sitemaps
+Sitemap: https://www.manj.io/sitemap.xml
