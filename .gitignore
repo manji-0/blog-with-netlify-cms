@@ -36,4 +36,3 @@ yarn-error.log*
 # feed
 public/feed.xml
 public/sitemap.xml
-public/robots.txt
