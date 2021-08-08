@@ -5,7 +5,20 @@ import { Theme, ParsedRequest } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    const { fontSize, theme, md, background } = (query || {});
+    let { fontSize, theme, md, background } = (query || {});
+
+    if (fontSize === undefined) {
+        fontSize = "96px"
+    }
+    if (theme === undefined) {
+        theme = "black"
+    }
+    if (md === undefined) {
+        md = "1"
+    }
+    if (background === undefined) {
+        background = ""
+    }
 
     if (Array.isArray(fontSize)) {
         throw new Error('Expected a single fontSize');
