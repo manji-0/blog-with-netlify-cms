@@ -1,8 +1,8 @@
-import { BlogPosting } from "schema-dts";
-import { jsonLdScriptProps } from "react-schemaorg";
-import config from "../../lib/config";
 import { formatISO } from "date-fns";
 import Head from "next/head";
+import { jsonLdScriptProps } from "react-schemaorg";
+import { BlogPosting } from "schema-dts";
+import config from "../../lib/config";
 
 type Props = {
   url: string;

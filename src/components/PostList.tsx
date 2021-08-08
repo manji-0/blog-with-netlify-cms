@@ -1,9 +1,9 @@
 import React from "react";
 import { PostContent } from "../lib/posts";
+import { TagContent } from "../lib/tags";
+import Pagination from "./Pagination";
 import PostItem from "./PostItem";
 import TagLink from "./TagLink";
-import Pagination from "./Pagination";
-import { TagContent } from "../lib/tags";
 
 type Props = {
   posts: PostContent[];
@@ -28,8 +28,8 @@ export default function PostList({ posts, tags, pagination }: Props) {
           current={pagination.current}
           pages={pagination.pages}
           link={{
-            href: (page) => (page === 1 ? "/posts" : "/posts/page/[page]"),
-            as: (page) => (page === 1 ? null : "/posts/page/" + page),
+            href: (page) => (page === 1 ? "/blog" : "/blog/page/[page]"),
+            as: (page) => (page === 1 ? null : "/blog/page/" + page),
           }}
         />
       </div>

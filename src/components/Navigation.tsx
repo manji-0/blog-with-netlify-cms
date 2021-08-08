@@ -1,7 +1,7 @@
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
-import { useState } from "react";
 
 export default function Navigation() {
   const router = useRouter();

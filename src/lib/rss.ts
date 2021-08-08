@@ -1,7 +1,7 @@
 import RSS from 'rss';
-import {listPostContent} from './posts'
+import {listPostContent} from './posts';
 
-export async function generateFeedXml() {
+export async function generateFeedXml(): Promise<string> {
   const feed = new RSS({
     title: "タイトル",
     description: "説明",

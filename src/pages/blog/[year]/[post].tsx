@@ -1,19 +1,18 @@
+import fs from "fs";
+import { parseISO } from 'date-fns';
+import matter from "gray-matter";
+import yaml from "js-yaml";
 import { GetStaticProps, GetStaticPaths } from "next";
+import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
-import hydrate from "next-mdx-remote/hydrate";
-import matter from "gray-matter";
-import { fetchPostContent } from "../../../lib/posts";
-import fs from "fs";
-import yaml from "js-yaml";
-import { parseISO } from 'date-fns';
-import PostLayout from "../../../components/PostLayout";
-
-import InstagramEmbed from "react-instagram-embed";
-import YouTube from "react-youtube";
-import { TwitterTweetEmbed } from "react-twitter-embed";
-import Gist from 'react-gist';
 import Script from 'next/script';
+import Gist from 'react-gist';
+import InstagramEmbed from "react-instagram-embed";
+import { TwitterTweetEmbed } from "react-twitter-embed";
+import YouTube from "react-youtube";
+import PostLayout from "../../../components/PostLayout";
+import { fetchPostContent } from "../../../lib/posts";
 
 export type Props = {
   title: string;
@@ -27,7 +26,7 @@ export type Props = {
 
 const components = { InstagramEmbed, YouTube, TwitterTweetEmbed, Script, Gist };
 const slugToPostContent = (postContents => {
-  let hash = {}
+  const hash = {}
   postContents.forEach(it => hash[it.slug] = it)
   return hash;
 })(fetchPostContent());

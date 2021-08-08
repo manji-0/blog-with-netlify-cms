@@ -1,5 +1,5 @@
-import { generatePagination } from "../lib/pagination";
 import Link from "next/link";
+import { generatePagination } from "../lib/pagination";
 
 type Props = {
   current: number;

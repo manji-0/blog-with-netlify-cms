@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../../public/styles/content.module.css";
+import { getAuthor } from "../lib/authors";
+import { getTag } from "../lib/tags";
 import Author from "./Author";
 import Copyright from "./Copyright";
 import Date from "./Date";
@@ -10,8 +12,6 @@ import OpenGraphMeta from "./meta/OpenGraphMeta";
 import TwitterCardMeta from "./meta/TwitterCardMeta";
 import { SocialList } from "./SocialList";
 import TagButton from "./TagButton";
-import { getAuthor } from "../lib/authors";
-import { getTag } from "../lib/tags";
 
 type Props = {
   title: string;
