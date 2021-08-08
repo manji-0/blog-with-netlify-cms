@@ -45,9 +45,9 @@ export function parseRequest(req: IncomingMessage) {
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
-        theme: ['black', 'white', 'stroke'].includes(theme) ? theme as Theme : 'black',
+        theme: ['black', 'white', 'stroke'].includes(theme) ? theme as Theme : "black" as Theme ,
         md: md === '1' || md === 'true',
-        fontSize: fontSize || '96px',
+        fontSize: fontSize,
         background: decodeURIComponent(background)
     };
     return parsedRequest;
