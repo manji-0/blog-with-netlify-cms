@@ -10,7 +10,7 @@ export type PostContent = {
   readonly title: string;
   readonly slug: string;
   readonly tags?: string[];
-  readonly description: string;
+  readonly description?: string;
   readonly is_blog?: boolean;
   readonly fullPath: string;
   readonly urlPath: string;
@@ -40,8 +40,8 @@ export function fetchPostContent(): PostContent[] {
       const matterData = matterResult.data as {
         date: string;
         title: string;
-        tags?: string[];
         slug: string;
+        tags?: string[];
         description?: string;
         is_blog?: boolean;
         fullPath: string,
