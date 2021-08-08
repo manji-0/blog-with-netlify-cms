@@ -34,6 +34,7 @@ module.exports = {
       rules: {
         "no-unused-vars": "off",
         "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
         "import/order": [
           "error",
           {
