@@ -10,6 +10,7 @@ export type PostContent = {
   readonly title: string;
   readonly slug: string;
   readonly tags?: string[];
+  readonly is_blog: boolean;
   readonly fullPath: string;
   readonly urlPath: string;
 };
@@ -39,6 +40,7 @@ export function fetchPostContent(): PostContent[] {
         date: string;
         title: string;
         tags: string[];
+        is_blog: boolean;
         slug: string;
         fullPath: string,
         urlPath: string,
@@ -73,6 +75,8 @@ export function fetchPostContent(): PostContent[] {
 export function countPosts(tag?: string): number {
   return fetchPostContent().filter(
     (it) => !tag || (it.tags && it.tags.includes(tag))
+  ).filter(
+    (it) => it.is_blog
   ).length;
 }
 
@@ -84,6 +88,7 @@ export function listPostContent(
 ): PostContent[] {
   return fetchPostContent()
     .filter((it) => !tag || (it.tags && it.tags.includes(tag)))
+    .filter((it) => it.is_blog)
     .filter((it => !year || (it.date.split("-")[0] === year)))
     .slice((page - 1) * limit, page * limit);
 }
