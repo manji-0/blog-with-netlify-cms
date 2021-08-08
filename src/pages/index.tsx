@@ -1,8 +1,11 @@
+import { GetStaticProps } from "next";
 import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { SocialList } from "../components/SocialList";
+import { listPostContent } from "../lib/posts";
+import { generateFeedXml } from "../lib/rss";
 
 export default function Index() {
   return (
@@ -60,3 +63,13 @@ export default function Index() {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = listPostContent(1, 100000);
+  await generateFeedXml(posts)
+  return {
+    props: {
+      posts,
+    },
+  };
+};

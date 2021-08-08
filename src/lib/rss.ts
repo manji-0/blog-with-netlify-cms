@@ -1,7 +1,8 @@
+import fs from 'fs'
 import RSS from 'rss';
-import {listPostContent} from './posts';
+import {PostContent} from './posts';
 
-export async function generateFeedXml(): Promise<string> {
+export async function generateFeedXml(posts: PostContent[]) {
   const feed = new RSS({
     title: "タイトル",
     description: "説明",
@@ -10,12 +11,6 @@ export async function generateFeedXml(): Promise<string> {
     language: 'ja',
   });
 
-  // 例としてpostsを含めるイメージ
-  // このあたりの書き方はライブラリのドキュメントを参考にしてください
-  const posts = await listPostContent(
-      1,
-      100000
-  );
   posts?.forEach((post) => {
     feed.item({
       title: post.title,
@@ -25,6 +20,5 @@ export async function generateFeedXml(): Promise<string> {
     });
   })
   
-  // XML形式の文字列にする
-  return feed.xml();
+  fs.writeFileSync('public/feed.xml', feed.xml())
 }
