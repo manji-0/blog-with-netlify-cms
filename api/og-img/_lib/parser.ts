@@ -34,7 +34,7 @@ export function parseRequest(req: IncomingMessage) {
         throw new Error('Expected a single background');
     }
     
-    const arr = String(filename).slice(1).split('.');
+    const arr = String(filename).split('.');
     let extension = '';
     let text = '';
     if (arr.length === 0) {
