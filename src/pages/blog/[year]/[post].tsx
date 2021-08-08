@@ -6,6 +6,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
+import Link from "next/link"
 import Script from 'next/script';
 import Gist from 'react-gist';
 import InstagramEmbed from "react-instagram-embed";
@@ -24,7 +25,7 @@ export type Props = {
   source: MdxRemote.Source;
 };
 
-const components = { InstagramEmbed, YouTube, TwitterTweetEmbed, Script, Gist };
+const components = { InstagramEmbed, YouTube, TwitterTweetEmbed, Script, Gist, Link };
 const slugToPostContent = (postContents => {
   const hash = {}
   postContents.forEach(it => hash[it.slug] = it)
