@@ -33,26 +33,27 @@ export default function PostLayout({
 }: Props) {
   const keywords = tags ? tags.map(it => getTag(it).name) : [];
   const authorName = getAuthor(author).name;
+  const year = String(date.getFullYear())
   return (
     <Layout>
       <BasicMeta
-        url={`/posts/${slug}`}
+        url={`/posts/${year}/${slug}`}
         title={title}
         keywords={keywords}
         description={description}
       />
       <TwitterCardMeta
-        url={`/posts/${slug}`}
+        url={`/posts/${year}/${slug}`}
         title={title}
         description={description}
       />
       <OpenGraphMeta
-        url={`/posts/${slug}`}
+        url={`/posts/${year}/${slug}`}
         title={title}
         description={description}
       />
       <JsonLdMeta
-        url={`/posts/${slug}`}
+        url={`/posts/${year}/${slug}`}
         title={title}
         keywords={keywords}
         date={date}
