@@ -4,7 +4,7 @@ import { Theme, ParsedRequest } from './types';
 
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
-    const { pathname, query } = parse(req.url || '/', true);
+    const { query } = parse(req.url || '/', true);
     let { fontSize, theme, md, background, filename } = (query || {});
 
     if (fontSize === undefined) {
