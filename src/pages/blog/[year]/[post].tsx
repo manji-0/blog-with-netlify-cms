@@ -3,9 +3,8 @@ import { parseISO } from 'date-fns';
 import matter from "gray-matter";
 import yaml from "js-yaml";
 import { GetStaticProps, GetStaticPaths } from "next";
-import hydrate from "next-mdx-remote/hydrate";
-import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
 import Link from "next/link"
 import Script from 'next/script';
 import Gist from 'react-gist';
@@ -50,7 +49,7 @@ export default function Post({
       author={author}
       description={description}
     >
-      <MDXRemote {...source} components={components} />
+      <MDXRemote compiledSource={source} components={components} />
     </PostLayout>
   )
 }
