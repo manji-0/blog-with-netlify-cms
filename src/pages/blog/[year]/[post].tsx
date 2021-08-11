@@ -6,7 +6,6 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
-import Image from 'next/image'
 import Script from 'next/script';
 import Gist from 'react-gist';
 import InstagramEmbed from "react-instagram-embed";
@@ -34,8 +33,8 @@ const components = {
     Script: Script,
     Gist: Gist,
     a: CustomLink,
-    img: Img,
-    Image: Image,
+    Image: Img,
+    Img: Img
 };
 
 const slugToPostContent = (postContents => {

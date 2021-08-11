@@ -2,20 +2,24 @@ import Image from 'next/image'
 
 const Img = ({
     src,
-    alt,
+    width,
+    height,
+    alt
 }: {
     src: string;
-    alt: string;
+    width: string;
+    height: string;
+    alt?: string;
 }): JSX.Element =>
     (
         <Image
             src={src}
             sizes={"50vw"}
             quality={"100"}
-            width={"100%"}
-            height={"100%"}
+            width={width}
+            height={height}
             layout={"responsive"}
-            alt={alt}
+            alt={!alt ? "image" : alt}
             unoptimized={false} />
     );
 
