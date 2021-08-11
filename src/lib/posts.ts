@@ -13,12 +13,7 @@ export type PostContent = {
   readonly urlPath: string;
 };
 
-let postCache: PostContent[];
-
 export function fetchPostContent(is_blog = true): PostContent[] {
-  if (postCache) {
-    return postCache;
-  }
   const postsDirectory = !is_blog ? path.join(process.cwd(), "content/pages") : path.join(process.cwd(), "content/posts")
 
   // Get file names under /posts
@@ -63,14 +58,14 @@ export function fetchPostContent(is_blog = true): PostContent[] {
       return matterData;
     });
   // Sort posts by date
-  postCache = allPostsData.sort((a, b) => {
+
+  return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
       return -1;
     }
   });
-  return postCache;
 }
 
 export function countPosts(tag?: string): number {
