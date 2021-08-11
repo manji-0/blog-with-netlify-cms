@@ -11,7 +11,9 @@ import Gist from 'react-gist';
 import InstagramEmbed from "react-instagram-embed";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import YouTube from "react-youtube";
-import CustomLink from "../../../components/link";
+import CustomLink from "../../../components/Link";
+import Image from 'next/image'
+import Img from '../../../components/Image'
 import PostLayout from "../../../components/PostLayout";
 import { fetchPostContent } from "../../../lib/posts";
 
@@ -31,7 +33,11 @@ const components = {
     Twitter: TwitterTweetEmbed,
     Script: Script,
     Gist: Gist,
-    a: CustomLink };
+    a: CustomLink,
+    img: Img,
+    Image: Image,
+};
+
 const slugToPostContent = (postContents => {
   const hash = {}
   postContents.forEach(it => hash[it.slug] = it)

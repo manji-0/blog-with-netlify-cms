@@ -1,6 +1,6 @@
 module.exports = ({
   images: {
-    domains: ["dl.dropboxusercontent.com"],
+    domains: ["dl.dropboxusercontent.com", "pbs.twimg.com"],
   },
   pageExtensions: ["tsx"],
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
