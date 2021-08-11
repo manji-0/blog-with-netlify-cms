@@ -6,14 +6,14 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
+import Image from 'next/image'
 import Script from 'next/script';
 import Gist from 'react-gist';
 import InstagramEmbed from "react-instagram-embed";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import YouTube from "react-youtube";
-import CustomLink from "../../../components/Link";
-import Image from 'next/image'
 import Img from '../../../components/Image'
+import CustomLink from "../../../components/Link";
 import PostLayout from "../../../components/PostLayout";
 import { fetchPostContent } from "../../../lib/posts";
 
