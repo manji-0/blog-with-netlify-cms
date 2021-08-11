@@ -26,7 +26,6 @@ export function fetchPostContent(is_blog = true): PostContent[] {
   const allPostsData = fileNames
     .filter((it) => it.endsWith(".mdx"))
     .map((fileName) => {
-      console.log(fileName)
       // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
