@@ -12,12 +12,12 @@ export default function Navigation() {
       <div className={"container " + (active ? "active" : "")}>
         <ul>
           <li>
-            <Link href="/">
+            <Link href="/" passHref>
               <a className={router.pathname === "/" ? "active" : null}>Top</a>
             </Link>
           </li>
           <li>
-            <Link href="/resume">
+            <Link href="/resume" passHref>
               <a
                 className={
                   router.asPath === "/resume" ? "active" : null
@@ -28,7 +28,7 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="/contacts">
+            <Link href="/contacts" passHref>
               <a
                 className={
                   router.asPath === "/contacts" ? "active" : null
@@ -39,7 +39,7 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="/blog">
+            <Link href="/blog" passHref>
               <a
                 className={
                   router.pathname.startsWith("/blog") ? "active" : null

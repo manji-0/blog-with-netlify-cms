@@ -34,7 +34,7 @@ const CLink = ({
     href: string;
 }): JSX.Element =>
     href.startsWith('/') || href === '' ? (
-        <Link href={href}>
+        <Link href={href} passHref>
             <a>{children}</a>
         </Link>
     ) : (
