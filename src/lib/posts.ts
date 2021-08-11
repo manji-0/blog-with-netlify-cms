@@ -64,7 +64,9 @@ export function fetchPostContent(is_blog = true): PostContent[] {
       matterData.fullPath = fullPath;
 
       const year = matterData.date.split("-")[0]
-      matterData.urlPath = path.join("/blog/", year, fileName.replace(/\.mdx$/, ""))
+      matterData.urlPath = is_blog
+        ? path.join("/blog/", year, fileName.replace(/\.mdx$/, ""))
+        : path.join("/", fileName.replace(/\.mdx$/, ""));
 
       matterData.slug = fileName.replace(/\.mdx$/, "");
 
