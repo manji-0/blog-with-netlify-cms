@@ -87,6 +87,7 @@ export default function Navigation() {
             }
             .active {
               color: #222;
+              font-weight: 500;
             }
 
             @media (min-width: 769px) {

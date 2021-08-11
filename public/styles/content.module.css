@@ -1,7 +1,7 @@
 .content {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Hiragino Sans", "Noto Sans", "Ubuntu", sans-serif;
   color: #222;
-  font-weight: 200;
+  font-weight: 220;
 }
 
 .content time {
@@ -14,8 +14,9 @@
 }
 
 .content a {
-  color: blue;
+  color: rgb(0, 102, 255);
   text-decoration: underline;
+  font-weight: 300;
 }
 
 .content h1 {
@@ -56,7 +57,7 @@
 }
 
 .content code {
-  font-family: "Ubuntu Mono", monospace;
+  font-family: Menlo, "Ubuntu Mono", monospace;
   font-size: 85%;
   padding: 0.2em 0.4em;
   margin: 0;
@@ -72,7 +73,7 @@
   position: absolute;
   content: "\201C";
   font-size: 6em;
-  font-family: roboto, serif;
+  font-family: Menlo, roboto, serif;
   line-height: 1.5rem;
   margin-top: 0.1em;
   margin-left: -0.2em;
@@ -121,7 +122,7 @@
 }
 
 .content kbd {
-  font-family: "Ubuntu Mono", monospace;
+  font-family: Menlo, "Ubuntu Mono", monospace;
 }
 
 .content img {
