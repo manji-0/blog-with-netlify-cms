@@ -5,7 +5,7 @@ export async function generateSitemap(posts: PostContent[]) {
     const sitemap: string[] = []
 
     sitemap.push(`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`)
-    
+
     const nonBlogPages: PostContent[] = [
         {
             "title": "manj.io",
@@ -19,14 +19,14 @@ export async function generateSitemap(posts: PostContent[]) {
             "date": "2021-08-08T10:04:12.441Z",
             "fullPath": "",
             "slug": "resume",
-            "urlPath": "/blog/2021/resume"
+            "urlPath": "/resume"
         },
         {
             "title": "Contacts",
             "date": "2021-08-08T10:04:12.441Z",
             "fullPath": "",
             "slug": "contacts",
-            "urlPath": "/blog/2021/contacts"
+            "urlPath": "/contacts"
         }
     ];
 
