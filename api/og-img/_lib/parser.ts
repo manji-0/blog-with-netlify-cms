@@ -8,7 +8,7 @@ export function parseRequest(req: IncomingMessage) {
     let { fontSize, theme, md, background, filename } = (query || {});
 
     if (fontSize === undefined) {
-        fontSize = "96px"
+        fontSize = "120px"
     }
     if (theme === undefined) {
         theme = "black"
@@ -33,7 +33,7 @@ export function parseRequest(req: IncomingMessage) {
     if (Array.isArray(background)) {
         throw new Error('Expected a single background');
     }
-    
+
     const arr = String(filename).split('.');
     let extension = '';
     let text = '';
