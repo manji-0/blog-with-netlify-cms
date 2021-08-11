@@ -6,13 +6,13 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
+import Link from 'next/link'
 import Script from 'next/script';
 import Gist from 'react-gist';
 import InstagramEmbed from "react-instagram-embed";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import YouTube from "react-youtube";
 import Img from '../../../components/Image'
-import CLink from "../../../components/Link";
 import PostLayout from "../../../components/PostLayout";
 import { fetchPostContent } from "../../../lib/posts";
 
@@ -25,6 +25,23 @@ export type Props = {
   description?: string;
   source: MdxRemote.Source;
 };
+
+const CLink = ({
+    children,
+    href,
+}: {
+    children: string;
+    href: string;
+}): JSX.Element =>
+    href.startsWith('/') || href === '' ? (
+        <Link href={href}>
+            <a>{children}</a>
+        </Link>
+    ) : (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+            {children}
+        </a>
+    );
 
 const components = {
     Instagram: InstagramEmbed,
@@ -42,6 +59,7 @@ const slugToPostContent = (postContents => {
   postContents.forEach(it => hash[it.slug] = it)
   return hash;
 })(fetchPostContent());
+
 
 export default function Post({
   title,
