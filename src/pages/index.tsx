@@ -20,7 +20,7 @@ export default function Index() {
             Hi, I&apos;m manji0<span className="fancy">.</span>
           </h1>
           <span className="handle">Wataru Manji</span>
-          <h2>I am Tech Lead/Manager of Verda Reliability Engineering Team, LINE Corp.<br/><br/>And an expert at system design in microservice architecture <br/>and data flow design such as monitoring.</h2>
+          <h2>I am Tech Lead/Manager of Verda Reliability Engineering Team, LINE Corp.<br/><br/>And an expert at system design in microservice architecture and data flow design such as monitoring.</h2>
           <SocialList />
         </div>
       </div>
@@ -41,6 +41,7 @@ export default function Index() {
           font-size: 1.75rem;
           font-weight: 400;
           line-height: 1.25;
+          max-width: 95vw;
         }
         .fancy {
           color: #15847d;
@@ -58,6 +59,7 @@ export default function Index() {
           }
           h2 {
             font-size: 2.25rem;
+            max-width: 85vw;
           }
         }
       `}</style>
