@@ -3,30 +3,30 @@ import path from "path";
 import matter from "gray-matter";
 import yaml from "js-yaml";
 
-const postsDirectory = path.join(process.cwd(), "content/posts");
-
 export type PostContent = {
   readonly date: string;
   readonly title: string;
   readonly slug: string;
   readonly tags?: string[];
   readonly description?: string;
-  readonly is_blog?: boolean;
   readonly fullPath: string;
   readonly urlPath: string;
 };
 
 let postCache: PostContent[];
 
-export function fetchPostContent(): PostContent[] {
+export function fetchPostContent(is_blog = true): PostContent[] {
   if (postCache) {
     return postCache;
   }
+  const postsDirectory = !is_blog ? path.join(process.cwd(), "content/pages") : path.join(process.cwd(), "content/posts")
+
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames
     .filter((it) => it.endsWith(".mdx"))
     .map((fileName) => {
+      console.log(fileName)
       // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -43,15 +43,11 @@ export function fetchPostContent(): PostContent[] {
         slug: string;
         tags?: string[];
         description?: string;
-        is_blog?: boolean;
         fullPath: string,
         urlPath: string,
       };
       if (matterData.tags === undefined) {
         matterData.tags = []
-      }
-      if (matterData.is_blog === undefined) {
-        matterData.is_blog = true
       }
 
       if (matterData.description === undefined) {
@@ -81,8 +77,6 @@ export function fetchPostContent(): PostContent[] {
 export function countPosts(tag?: string): number {
   return fetchPostContent().filter(
     (it) => !tag || (it.tags && it.tags.includes(tag))
-  ).filter(
-    (it) => it.is_blog === true
   ).length;
 }
 
@@ -94,7 +88,6 @@ export function listPostContent(
 ): PostContent[] {
   return fetchPostContent()
     .filter((it) => !tag || (it.tags && it.tags.includes(tag)))
-    .filter((it) => it.is_blog === true)
     .filter((it => !year || (it.date.split("-")[0] === year)))
     .slice((page - 1) * limit, page * limit);
 }
