@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const CustomLink = ({
+const CLink = ({
     children,
     href,
 }: {
@@ -17,4 +17,4 @@ const CustomLink = ({
         </a>
     );
 
-export default CustomLink
+export default CLink

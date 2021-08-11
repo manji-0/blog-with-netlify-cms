@@ -12,7 +12,7 @@ import InstagramEmbed from "react-instagram-embed";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import YouTube from "react-youtube";
 import Img from '../../../components/Image'
-import CustomLink from "../../../components/Link";
+import CLink from "../../../components/Link";
 import PostLayout from "../../../components/PostLayout";
 import { fetchPostContent } from "../../../lib/posts";
 
@@ -32,7 +32,7 @@ const components = {
     Twitter: TwitterTweetEmbed,
     Script: Script,
     Gist: Gist,
-    a: CustomLink,
+    a: CLink,
     Image: Img,
     Img: Img
 };
