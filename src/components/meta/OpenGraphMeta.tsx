@@ -30,6 +30,7 @@ export default function OpenGraphMeta({
         content={image ? image : config.base_url + "/og_image.png"}
       />
       <meta property="og:type" content="article" />
+      <meta property="og:locale" content="ja_JP" />
     </Head>
   );
 }
