@@ -26,8 +26,9 @@ a:hover {
 }
 
 iframe {
+  border: 0;
   margin-top: 1.5rem;
   text-align: center;
   width: 100%;
-  max-height: fit-content;
+  max-height: 100vw;
 }

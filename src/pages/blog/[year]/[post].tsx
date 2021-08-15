@@ -9,6 +9,7 @@ import { MdxRemote } from "next-mdx-remote/types";
 import Link from 'next/link'
 import Script from 'next/script';
 import Gist from 'react-gist';
+import Iframe from "react-iframe";
 import InstagramEmbed from "react-instagram-embed";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import YouTube from "react-youtube";
@@ -51,7 +52,8 @@ const components = {
     Gist: Gist,
     a: CLink,
     Image: Img,
-    Img: Img
+    Img: Img,
+    iframe: Iframe,
 };
 
 const slugToPostContent = (postContents => {
